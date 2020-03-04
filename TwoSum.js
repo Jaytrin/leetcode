@@ -7,13 +7,12 @@
 // return [0, 1].
 
 //Brute Force Solution
-
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
+var twoSumBruteForce = function(nums, target) {
     var solutionArray = [];
     for(var i = 0; i < nums.length; i++){
         var num1 = nums[i];
@@ -24,6 +23,24 @@ var twoSum = function(nums, target) {
                 solutionArray.push(u);
                 return solutionArray;
             } else { solutionArray = false};
+        }
+    }
+return solutionArray;
+};
+
+//1 Pass Solution
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSumOnePass = function(nums, target) {
+    var map = {};
+    for (let i = 0; i < nums.length; i++){
+        if((target - nums[i]) in map){
+            return [map[target - nums[i]], i];
+        } else {
+            map[nums[i]] = i;
         }
     }
 return solutionArray;
